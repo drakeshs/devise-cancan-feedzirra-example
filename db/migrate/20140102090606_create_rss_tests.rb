@@ -12,3 +12,15 @@ class CreateRssTests < ActiveRecord::Migration
     end
   end
 end
+
+git filter-branch --commit-filter '
+ if [ "$GIT_COMMITTER_NAME" = "kiran-panzer" ];
+  then
+                GIT_COMMITTER_NAME="D Rakesh Sharma";
+                GIT_AUTHOR_NAME="D Rakesh Sharma";
+                GIT_COMMITTER_EMAIL="drakeshs@gmail.com";
+                GIT_AUTHOR_EMAIL="drakeshs@gmail.com";
+                git commit-tree "$@";
+        else
+                git commit-tree "$@";
+        fi' HEAD
