@@ -1,0 +1,29 @@
+<h1>Listing rss_tests</h1>
+
+<table>
+  <tr>
+    <th>Url</th>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rss_tests.each do |rss_test| %>
+  <tr>
+    <td><%= rss_test.url %></td>
+    <td><%= rss_test.title %></td>
+    <td><%= rss_test.author %></td>
+    <td><%= rss_test.status %></td>
+    <td><%= link_to 'Show', rss_test %></td>
+    <td><%= link_to 'Edit', edit_rss_test_path(rss_test) %></td>
+    <td><%= link_to 'Destroy', rss_test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Rss test', new_rss_test_path %>

@@ -1,0 +1,22 @@
+<%= form_for(@rss_test) do |f| %>
+  <% if @rss_test.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rss_test.errors.count, "error") %> prohibited this rss_test from being saved:</h2>
+
+      <ul>
+      <% @rss_test.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+ 
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
